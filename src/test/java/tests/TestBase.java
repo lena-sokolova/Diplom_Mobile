@@ -13,11 +13,11 @@ import org.junit.jupiter.api.BeforeEach;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TestBase {
-    public static String ENV = System.getProperty("deviceHost");
+    public static String deviceHost = System.getProperty("deviceHost");
 
     @BeforeAll
     static void beforeAll() {
-        switch (ENV) {
+        switch (deviceHost) {
             case "browserstack":
                 Configuration.browser = BrowserstackDriver.class.getName();
                 break;
@@ -38,7 +38,7 @@ public class TestBase {
     void addAttachments() {
         String sessionId = sessionId().toString();
         Attach.pageSource();
-        if (ENV.equals("browserstack")) {
+        if (deviceHost.equals("browserstack")) {
             Attach.addVideo(sessionId);
         }
         closeWebDriver();
