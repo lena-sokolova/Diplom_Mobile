@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TestBase {
-    public static String ENV = System.getProperty("env");
+    public static String ENV = System.getProperty("deviceHost");
 
     @BeforeAll
     static void beforeAll() {
