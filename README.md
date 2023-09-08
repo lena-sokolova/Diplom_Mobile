@@ -52,11 +52,11 @@ Allure-отчет включает в себя:
 
 ### Локальный запуск тестов из терминала
 ```
-gradle clean test -Denv=local
+gradle clean test -DdeviceHost=local
 ```
 ### Удаленный запуск тестов из терминала
 ```
-gradle clean test -Denv=browserstack
+gradle clean test -DdeviceHost=remote
 ```
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/icons/Jenkins.svg"> Сборка в Jenkins
 
