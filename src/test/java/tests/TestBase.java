@@ -17,6 +17,9 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
+        if (deviceHost == null) {
+            deviceHost = "browserstack";
+        }
         switch (deviceHost) {
             case "browserstack":
                 Configuration.browser = BrowserstackDriver.class.getName();
@@ -26,6 +29,7 @@ public class TestBase {
                 break;
         }
         Configuration.browserSize = null;
+        Configuration.timeout = 30000;
     }
 
     @BeforeEach
