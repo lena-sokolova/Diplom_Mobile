@@ -9,6 +9,8 @@ import pages.*;
 import static com.codeborne.selenide.Selenide.back;
 import static io.qameta.allure.Allure.step;
 
+@Tag("local")
+@Owner("Elena Sokolova")
 public class WikiTestsLocal extends tests.TestBase {
 
     SearchPage searchPage = new SearchPage();
@@ -19,8 +21,6 @@ public class WikiTestsLocal extends tests.TestBase {
     AddLanguagePage addLanguagePage = new AddLanguagePage();
 
     @Test
-    @Tag("local")
-    @Owner("Elena Sokolova")
     @DisplayName("Search test")
     void successfulSearchTest() {
         step("Click on back button", () -> {
@@ -38,8 +38,6 @@ public class WikiTestsLocal extends tests.TestBase {
     }
 
     @Test
-    @Tag("local")
-    @Owner("Elena Sokolova")
     @DisplayName("Open article test")
     void successfulOpenArticleTest() {
         step("Click on back button", () -> {
@@ -63,8 +61,6 @@ public class WikiTestsLocal extends tests.TestBase {
     }
 
     @Test
-    @Tag("local")
-    @Owner("Elena Sokolova")
     @DisplayName("Add language")
     void successfulAddLanguageTest() {
         step("Click on the Add or Edit language button", () -> {

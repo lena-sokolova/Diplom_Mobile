@@ -13,6 +13,8 @@ import pages.components.SetLanguageComponent;
 
 import static io.qameta.allure.Allure.step;
 
+@Tag("remote")
+@Owner("Elena Sokolova")
 public class WikiTestsRemote extends tests.TestBase {
 
     SearchPage searchPage = new SearchPage();
@@ -23,8 +25,6 @@ public class WikiTestsRemote extends tests.TestBase {
     SetLanguageComponent languageComponent = new SetLanguageComponent();
 
     @Test
-    @Tag("remote")
-    @Owner("Elena Sokolova")
     @DisplayName("Search test")
     void successfulSearchTest() {
         step("Click on search field", () -> {
@@ -39,8 +39,6 @@ public class WikiTestsRemote extends tests.TestBase {
     }
 
     @Test
-    @Tag("remote")
-    @Owner("Elena Sokolova")
     @DisplayName("Open article test")
     void successfulOpenArticleTest() {
         step("Click on search field", () -> {
@@ -64,8 +62,6 @@ public class WikiTestsRemote extends tests.TestBase {
     }
 
     @Test
-    @Tag("remote")
-    @Owner("Elena Sokolova")
     @DisplayName("Add language")
     void successfulAddLanguageTest() {
         step("Click on the settings menu icon", () -> {
