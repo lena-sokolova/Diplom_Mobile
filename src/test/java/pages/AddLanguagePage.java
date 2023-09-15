@@ -8,8 +8,8 @@ import static com.codeborne.selenide.Selenide.$$;
 public class AddLanguagePage {
     public static final String LANGUAGE = "Русский";
 
-    public AddLanguagePage selectLanguage() {
-        $$(AppiumBy.className("android.widget.TextView")).findBy(text(LANGUAGE)).click();
+    public AddLanguagePage selectLanguage(String value) {
+        $$(AppiumBy.className("android.widget.TextView")).findBy(text(value)).click();
         return this;
     }
 }

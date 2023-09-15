@@ -12,6 +12,9 @@ import pages.components.MenuComponent;
 import pages.components.SetLanguageComponent;
 
 import static io.qameta.allure.Allure.step;
+import static pages.ErrorPage.ErrorText;
+import static pages.SearchPage.SEARCH_VALUE;
+import static pages.components.SetLanguageComponent.LANGUAGE;
 
 @Tag("remote")
 @Owner("Elena Sokolova")
@@ -31,7 +34,7 @@ public class WikiTestsRemote extends tests.TestBase {
             searchPage.clickSearch();
         });
         step("Type search value", () -> {
-            searchPage.setSearchValue();
+            searchPage.setSearchValue(SEARCH_VALUE);
         });
         step("Verify content found", () -> {
             searchResultPage.checkResults();
@@ -45,19 +48,19 @@ public class WikiTestsRemote extends tests.TestBase {
             searchPage.clickSearch();
         });
         step("Type search value", () -> {
-            searchPage.setSearchValue();
+            searchPage.setSearchValue(SEARCH_VALUE);
         });
         step("Verify content found", () -> {
             searchResultPage.checkResults();
         });
         step("Open article", () -> {
-            searchResultPage.openArticle();
+            searchResultPage.openArticleRemote();
         });
         step("Click on the back button", () -> {
             errorPage.checkErrorButton();
         });
         step("Check visibility of header logo", () -> {
-            errorPage.checkErrorText();
+            errorPage.checkErrorText(ErrorText);
         });
     }
 
@@ -72,10 +75,10 @@ public class WikiTestsRemote extends tests.TestBase {
         });
         step("Select language", () -> {
             settingsPage.clickLanguageField();
-            languageComponent.selectLanguage();
+            languageComponent.selectLanguage(LANGUAGE);
         });
         step("Check selected language", () -> {
-            settingsPage.checkLanguage();
+            settingsPage.checkLanguage(LANGUAGE);
         });
     }
 }

@@ -9,15 +9,13 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class OnboardingPage {
 
-    public static final String LANGUAGE = "Русский";
-
     public OnboardingPage clickAddOrEditLanguageButton() {
         $(AppiumBy.id("org.wikipedia.alpha:id/addLanguageButton")).click();
         return this;
     }
 
-    public OnboardingPage checkLanguage() {
-        $$(AppiumBy.className("android.widget.TextView")).findBy(text(LANGUAGE)).shouldBe(visible);
+    public OnboardingPage checkLanguage(String value) {
+        $$(AppiumBy.className("android.widget.TextView")).findBy(text(value)).shouldBe(visible);
         return this;
     }
 }

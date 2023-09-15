@@ -8,6 +8,8 @@ import pages.*;
 
 import static com.codeborne.selenide.Selenide.back;
 import static io.qameta.allure.Allure.step;
+import static pages.AddLanguagePage.LANGUAGE;
+import static pages.SearchPage.SEARCH_VALUE;
 
 @Tag("local")
 @Owner("Elena Sokolova")
@@ -15,7 +17,7 @@ public class WikiTestsLocal extends tests.TestBase {
 
     SearchPage searchPage = new SearchPage();
     SearchResultPage searchResultPage = new SearchResultPage();
-    OpenArticlePage openArticlePage = new OpenArticlePage();
+    ArticlePage articlePage = new ArticlePage();
     OnboardingPage onboardingPage = new OnboardingPage();
     WikiLanguagesPage wikiLanguagesPage = new WikiLanguagesPage();
     AddLanguagePage addLanguagePage = new AddLanguagePage();
@@ -30,7 +32,7 @@ public class WikiTestsLocal extends tests.TestBase {
             searchPage.clickSearch();
         });
         step("Type search value", () -> {
-            searchPage.setSearchValue();
+            searchPage.setSearchValue(SEARCH_VALUE);
         });
         step("Verify content found", () -> {
             searchResultPage.checkResults();
@@ -47,16 +49,16 @@ public class WikiTestsLocal extends tests.TestBase {
             searchPage.clickSearch();
         });
         step("Type search value", () -> {
-            searchPage.setSearchValue();
+            searchPage.setSearchValue(SEARCH_VALUE);
         });
         step("Verify content found", () -> {
             searchResultPage.checkResults();
         });
         step("Open article", () -> {
-            openArticlePage.openArticle();
+            searchResultPage.openArticleLocal();
         });
         step("Check article title", () -> {
-            openArticlePage.checkHeaderTitle();
+            articlePage.checkHeaderTitle();
         });
     }
 
@@ -68,11 +70,11 @@ public class WikiTestsLocal extends tests.TestBase {
         });
         step("Select language", () -> {
             wikiLanguagesPage.clickAddLanguageButton();
-            addLanguagePage.selectLanguage();
+            addLanguagePage.selectLanguage(LANGUAGE);
         });
         step("Check selected language", () -> {
             wikiLanguagesPage.clickBackButton();
-            onboardingPage.checkLanguage();
+            onboardingPage.checkLanguage(LANGUAGE);
         });
     }
 }

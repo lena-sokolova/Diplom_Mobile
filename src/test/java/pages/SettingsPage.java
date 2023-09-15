@@ -8,15 +8,13 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class SettingsPage {
 
-    public static final String LANGUAGE = "Svenska";
-
     public SettingsPage clickLanguageField() {
         $$(AppiumBy.className("android.widget.TextView")).findBy(text("Wikipedia language")).click();
         return this;
     }
 
-    public SettingsPage checkLanguage() {
-        $$(AppiumBy.className("android.widget.TextView")).findBy(text(LANGUAGE)).shouldBe(visible);
+    public SettingsPage checkLanguage(String value) {
+        $$(AppiumBy.className("android.widget.TextView")).findBy(text(value)).shouldBe(visible);
         return this;
     }
 }

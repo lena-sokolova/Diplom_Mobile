@@ -14,8 +14,8 @@ public class ErrorPage {
         return this;
     }
 
-    public ErrorPage checkErrorText() {
-        $(AppiumBy.id("org.wikipedia.alpha:id/view_wiki_error_text")).shouldHave(text(ErrorText));
+    public ErrorPage checkErrorText(String value) {
+        $(AppiumBy.id("org.wikipedia.alpha:id/view_wiki_error_text")).shouldHave(text(value));
         return this;
     }
 }

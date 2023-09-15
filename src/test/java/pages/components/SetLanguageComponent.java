@@ -9,8 +9,8 @@ public class SetLanguageComponent {
 
     public static final String LANGUAGE = "Svenska";
 
-    public SetLanguageComponent selectLanguage() {
-        $$(AppiumBy.id("org.wikipedia.alpha:id/localized_language_name")).findBy(text(LANGUAGE)).click();
+    public SetLanguageComponent selectLanguage(String value) {
+        $$(AppiumBy.id("org.wikipedia.alpha:id/localized_language_name")).findBy(text(value)).click();
         return this;
 
     }

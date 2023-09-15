@@ -13,8 +13,8 @@ public class SearchPage {
         return this;
     }
 
-    public SearchPage setSearchValue() {
-        $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys(SEARCH_VALUE);
+    public SearchPage setSearchValue(String value) {
+        $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys(value);
         return this;
     }
 
